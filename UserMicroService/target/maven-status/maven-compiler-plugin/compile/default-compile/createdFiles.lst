@@ -1,0 +1,10 @@
+com\sd\usermicroservice\repositories\AdminRepository.class
+com\sd\usermicroservice\services\AdminService.class
+com\sd\usermicroservice\entities\Client.class
+com\sd\usermicroservice\entities\Admin.class
+com\sd\usermicroservice\controllers\AdminController.class
+com\sd\usermicroservice\services\ClientService.class
+com\sd\usermicroservice\UserMicroServiceApplication.class
+com\sd\usermicroservice\controllers\ClientController.class
+com\sd\usermicroservice\repositories\ClientRepository.class
+com\sd\usermicroservice\services\ResponseMessage.class
