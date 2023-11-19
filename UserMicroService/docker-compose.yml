@@ -1,0 +1,41 @@
+version: '3'
+services:
+  user_db:
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: dontworrybehappy
+      POSTGRES_DB: user_ms
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      assignment1-network:
+        ipv4_address: 172.16.0.52
+    
+  user-microservice:
+    image: a1-user-backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://user_db:5432/user_ms
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: dontworrybehappy
+    depends_on:
+      - user_db
+    networks:
+      assignment1-network:
+        ipv4_address: 172.16.0.53
+
+
+volumes:
+  db-data:
+
+networks:
+  assignment1-network:
+    external: true
