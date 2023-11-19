@@ -1,0 +1,6 @@
+version: '3'
+services: 
+  react:
+      image: a1-frontend
+      ports:
+        - "80:80"
